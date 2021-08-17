@@ -9,7 +9,11 @@ dict_data = {'id':['1', '2', '3'],
 csv_file = "temp.csv"
 try:
 #Add your code here
-
+ with open(csv_file, 'w') as csvfile:
+       writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+       writer.writeheader()
+       for data in dict_data:
+           writer.writerow(dict_data)
 
 except IOError:
    print("I/O error")
